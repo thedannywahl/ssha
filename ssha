@@ -34,5 +34,5 @@ if [ $# -gt 2 ]; then
 fi
 
 # GENERATE SSHA ################################################################
-echo -n "{SSHA}$(echo -n $1$2 | sha1sum | awk '{print $1}')$2" | base64 -w 0
+echo -n "$(echo -n $1$2 | sha1sum | awk '{print $1}')$2" | base64 -w 0 | awk '{print "{SSHA}" $0}'
 exit 0
